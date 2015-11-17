@@ -1,1 +1,22 @@
+<div class="col-sm-4 col-sm-offset-4" id="sign-up-form">
 
+	
+	<%= form_for :user, url: users_path do |f| %>
+		<%= f.label :email %>
+		<%= f.text_field :email, class:'form-control' %>
+		<br>
+		<%= f.label :password %>
+		<%= f.password_field :password, class: 'form-control' %>
+		<br>
+		<%= f.label :password_confirmation %>
+		<%= f.password_field :password_confirmation, class: 'form-control' %>
+		<br>
+		<%= f.label :name %>
+		<%= f.text_field :name, class: 'form-control' %>
+		<br>
+		<div class="text-right">
+		<%= f.submit "Sign Up", class: 'btn btn-default' %>
+		</div>
+	<% end %>
+
+</div>
