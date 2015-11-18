@@ -1,15 +1,36 @@
-<div class="col-sm-4 col-sm-offset-4" id="sign-up-form">
+<div class="col-sm-4 col-sm-offset-4">
+<!-- error div goes here -->
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2 class="error-warning">
+      <%= pluralize(@user.errors.count, "error") %> prohibited
+      this user from being saved:
+    </h2>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+      <li class="error-message"><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+</div>
 
-	
-	<%= form_for :user, url: users_path do |f| %>
-		<%= f.label :email %>
-		<%= f.text_field :email, class: 'form-control' %>
-		<br>
+
+<div class="col-sm-4 col-sm-offset-4" id="sign-up-form">	
+	<%= form_for @user do |f| %>
 		<%= f.label :name %>
 		<%= f.text_field :name, class: 'form-control' %>
 		<br>
+		<%= f.label :email %>
+		<%= f.text_field :email, class:'form-control' %>
+		<br>
+		<%= f.label :password %>
+		<%= f.password_field :password, class: 'form-control' %>
+		<br>
+		<%= f.label :password_confirmation %>
+		<%= f.password_field :password_confirmation, class: 'form-control' %>
 		<div class="text-right">
-		<%= f.submit "Sign Up", class: 'btn btn-default' %>
+		<%= f.submit "Submit", class: 'btn btn-default' %>
 		</div>
 	<% end %>
 
