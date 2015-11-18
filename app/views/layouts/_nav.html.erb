@@ -16,10 +16,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       
       <ul class="nav navbar-nav navbar-right">
-      <% if logged_in? %> 
-        <% @user = current_user %> 
         <li><a href="/users/<%=@user.id%>"><%= "Welcome #{@user.first_name}" %></a></li>
-        <li><a href="/rides/new">Create New Post</a></li>
+        <li><a href="/rides/new">Create New Ride</a></li>
         <li><%= link_to "Log out", logout_path, method: :delete %></li>
       <% else %> 
         <li><%= link_to "Log in", new_session_path, method: :get %></li>
