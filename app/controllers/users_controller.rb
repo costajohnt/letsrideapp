@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
 		if @user.save
 			session[:user_id] = @user.id
-			redirect_to new_user_path
+			redirect_to @user
 		else
 			render :new
 		end
@@ -24,12 +24,13 @@ class UsersController < ApplicationController
 		if @user.update_attributes(user_params_edit)
 		 redirect_to user_path(@user)
 		else
-		  render 'edit' 
+		  render 'users/edit'
 		end
 	end
 
 	def show
 		@user = User.find(params[:id])
+		@rides = Ride.where(user_id:(@user)).reverse_order
 	end
 
 	private

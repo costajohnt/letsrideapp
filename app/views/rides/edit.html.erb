@@ -1,0 +1,42 @@
+<%= form_for :ride do |f| %>
+	<div class="col-sm-4 col-sm-offset-4" id="new-post-form">
+		<%= f.label :title %>
+		<%= f.text_field :title, class:'form-control' %>
+	<br>
+		<%= f.label :description %>
+		<%= f.text_area :description, size: "5x8", class: 'form-control' %>
+	<br>
+		<%= f.label :start_date %>
+		<%= f.text_field :start_date, size: "5x8", class: 'form-control'%>
+	<br>
+		<%= f.label :end_date %>
+		<%= f.text_field :end_date, size: "5x8", class: 'form-control'%>
+	<br>
+		<%= f.label :start_time %>
+		<%= f.text_field :start_time, size: "5x8", class: 'form-control'%>
+	<br>
+		<%= f.label :end_time %>
+		<%= f.text_field :end_time, size: "5x8", class: 'form-control'%>
+	<br>
+		<%= f.label :distance %>
+		<%= f.text_field :distance, size: "5x8", class: 'form-control'%>
+	<br>
+		<%= f.label :drop %>
+		<%= f.check_box :drop, {}, true, false %>
+	<br>
+		<%= f.label :public %>
+		<%= f.check_box :public, {}, true, false %>
+	<br>
+		<%= f.label :start_location %>
+		<%= f.text_field :start_location, size: "5x8", class: 'form-control'%>
+	<br>
+		<%= f.label :end_location %>
+		<%= f.text_field :end_location, size: "5x8", class: 'form-control'%>
+	<br>
+
+
+		<div class="text-right">
+			<%= f.submit "Submit", class:'btn btn-default' %>
+		</div>
+	</div>
+<% end %>
