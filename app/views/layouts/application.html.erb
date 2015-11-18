@@ -1,54 +1,193 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>LetsRide</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+
+	<meta charset='utf-8' />
+	<title></title>
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+
+	<script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+	<link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+
+	<script src='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.js'></script>
+	<link rel='stylesheet' href='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.css' type='text/css' />
+
+
+	<style>
+
+	#inputs,
+#errors,
+#directions {
+    position: absolute;
+    width: 33.3333%;
+    max-width: 300px;
+    min-width: 200px;
+}
+
+#inputs {
+    z-index: 10;
+    top: 10px;
+    left: 10px;
+}
+
+#directions {
+    z-index: 99;
+    background: rgba(0,0,0,.8);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+}
+
+		.map {margin-left: 250px; width:500px; height:500px;}
+
+		#errors {
+			position: absolute;
+			width: 33.3333%;
+			max-width: 300px;
+			min-width: 200px;
+		}
+
+		#errors {
+			z-index: 8;
+			opacity: 0;
+			padding: 10px;
+			border-radius: 0 0 3px 3px;
+			background: rgba(0,0,0,.25);
+			top: 90px;
+			left: 10px;
+		}
+
+	</style>
+
+
+	<title>LetsRide</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 </head>
 <body>
 
-<nav id='nav' class="navbar navbar-default">
-  <div class="container-fluid">
-    
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="logo navbar-brand" href="/">Let's Ride</a>
-    </div>
+	<nav id='nav' class="navbar navbar-default">
+		<div class="container-fluid">
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      
-      <ul class="nav navbar-nav navbar-right">
-      <% if current_user.blank? %>
-        <li><%= link_to "Log in", new_session_path %></li>
-      <% end %>
-      <% if current_user.present? %>
-      <li> Welcome, <span><%= link_to current_user.name, user_path(current_user) %> </span></li>
-      <li><%= link_to 'New Ride', new_ride_path, method: :get %></li>
-      <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="logo navbar-brand" href="/">Let's Ride</a>
+			</div>
 
-      <% end %>
-      </ul>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-    </div>
+				<ul class="nav navbar-nav navbar-right">
+					<% if current_user.blank? %>
+					<li><%= link_to "Log in", new_session_path %></li>
+					<% end %>
+					<% if current_user.present? %>
+					<li> Welcome, <span><%= link_to current_user.name, user_path(current_user) %> </span></li>
+					<li><%= link_to 'New Ride', new_ride_path, method: :get %></li>
+					<li><%= link_to 'Logout', logout_path, method: :delete %></li>
 
-  </div>
-</nav>
+					<% end %>
+				</ul>
 
- <% if current_user.blank? %>
-<%= button_to 'Sign Up', new_user_path, :class => "btn btn-primary pull-right", :method => :get %>
-<% end %>
+			</div>
 
-<%= yield %>
+		</div>
+	</nav>
+
+	<% if current_user.blank? %>
+	<%= button_to 'Sign Up', new_user_path, :class => "btn btn-primary pull-right", :method => :get %>
+	<% end %>
+
+	<%= yield %>
+
+	<script>
+
+		L.mapbox.accessToken = 'pk.eyJ1IjoiaXNvbWR1cm0iLCJhIjoiY2loNThoYXh3MDBoNnRza290enF6YWNobiJ9.gm2YkuDsq--gEyl1YGCL_g';
+
+		var geojson = [
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [-77.031952, 38.913184]
+			},
+			"properties": {
+				"marker-color": "#3ca0d3",
+				"marker-size": "large",
+				"marker-symbol": "rocket"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [-122.413682, 37.775408]
+			},
+			"properties": {
+				"marker-color": "#63b6e5",
+				"marker-size": "large",
+				"marker-symbol": "rocket"
+			}
+		}
+		];
+
+		// var polyline_options = {
+		// 	color: '#000'
+		// };
+
+		var one = [geojson[0].geometry.coordinates[1], geojson[0].geometry.coordinates[0]];
+
+		var two = [geojson[1].geometry.coordinates[1], geojson[1].geometry.coordinates[0]];
+
+		var line_points = [[37.775408, -122.413682], [38.913184, -77.031952]];
+
+		console.log(line_points);
+
+		var mapSimple = L.mapbox.map('map_simple', 'mapbox.light')
+		.setView([38.89399, -77.03659], 17);
+
+		var myLayer = L.mapbox.featureLayer().setGeoJSON(geojson).addTo(mapSimple);
+
+		// var polyline = L.polyline(line_points, polyline_options).addTo(mapSimple);
+
+		mapSimple.scrollWheelZoom.disable();
+
+
+
+		var directions = L.mapbox.directions({
+			profile: 'mapbox.cycling'
+		}).setOrigin(geojson[0]).setDestination(geojson[1]);
+
+		console.log(directions)
+
+		var directionsLayer = L.mapbox.directions.layer(directions)
+    		.addTo(mapSimple);
+
+		var directionsInputControl = L.mapbox.directions.inputControl('inputs', directions)
+		    .addTo(mapSimple);
+
+		var directionsErrorsControl = L.mapbox.directions.errorsControl('errors', directions)
+		    .addTo(mapSimple);
+
+		var directionsRoutesControl = L.mapbox.directions.routesControl('routes', directions)
+		    .addTo(mapSimple);
+
+		var directionsInstructionsControl = L.mapbox.directions.instructionsControl('instructions', directions)
+		    .addTo(mapSimple);
+
+	</script>
 
 </body>
 </html>
