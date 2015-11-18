@@ -5,9 +5,9 @@ class RidesController < ApplicationController
 	end
 
 	def create
-		@ride = Rides.create(ride_params)
+		@ride = Ride.create(ride_params)
 		if @ride.save
-			redirect_to @ride
+			redirect_to ride_path(@ride)
 		end
 	end
 
@@ -18,6 +18,7 @@ class RidesController < ApplicationController
 	end
 
 	def show
+		@ride = Ride.find(params[:id])
 	end
 
 	def destroy
@@ -26,7 +27,7 @@ class RidesController < ApplicationController
 	private
 
 	def ride_params
-		params.require(:ride).permit(:title, :start_date, :start_time, :start_location)
+		params.require(:ride).permit(:title)
 	end
 
 

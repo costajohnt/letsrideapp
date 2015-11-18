@@ -11,3 +11,10 @@
 			<% end %>
 		</div>
 	</div>
+
+	<% @rides.each do |ride| %>
+		<div>
+			<div class='well well-sm'><%= link_to ride.title, ride_path(ride.id), method: :get %></div>
+		</div>
+	<% end %>
+	</div>

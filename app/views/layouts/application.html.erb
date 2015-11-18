@@ -33,7 +33,9 @@
       <% end %>
       <% if current_user.present? %>
       <li> Welcome, <span><%= link_to current_user.name, user_path(current_user) %> </span></li>
+      <li><%= link_to 'New Ride', new_ride_path, method: :get %></li>
       <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+
       <% end %>
       </ul>
 

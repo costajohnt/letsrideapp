@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@rides = Ride.where(user_id:(@user)).reverse_order
+		@rides = Ride.all
 	end
 
 	private
