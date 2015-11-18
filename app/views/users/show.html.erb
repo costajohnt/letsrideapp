@@ -1,20 +1,24 @@
+<!-- users#show -->
+
 <div class="container">
-	<div class="row" id="profile-details">
+	
+  <div class="row" id="profile-details">
+
 		<div class="col-lg-7 col-md-6 col-sm-5" id="user-description">
 			<h2 id="user-name"><%= @user.name %></h2>
 			<h4>Joined: <%= @user.created_at.strftime("%B %Y") %></h4>
 		</div>
 
 		<div class="col-sm-1">
-			<%= link_to edit_user_path(current_user), class: 'btn btn-success' do %>
-			  <i class="glyphicon glyphicon-edit"></i>
-			<% end %>
+			<%= button_to "Edit Profile", edit_user_path(current_user), class: "btn btn-default", method: "get" %>
 		</div>
-	</div>
 
-	<% @rides.each do |ride| %>
-		<div>
-			<div class='well well-sm'><%= link_to ride.title, ride_path(ride.id), method: :get %></div>
-		</div>
-	<% end %>
-	</div>
+  </div>
+
+  <% @rides.each do |ride| %>
+    <div class="row">
+      <div class='well well-sm'><%= link_to ride.title, ride_path(ride.id), method: :get %></div>
+    </div>
+  <% end %>
+
+</div>

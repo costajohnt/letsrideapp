@@ -1,5 +1,24 @@
+<!-- rides#show -->
+
 <div class="container">
-		<div class="col-lg-7 col-md-6 col-sm-5">
-			<h2 id="Ride"><%= @ride.title %></h2>
-	</div>
+
+  <div class="row">
+    <%= @ride.title %>
+    <%= @ride.description %>
+    <%= @ride.start_date %>
+    <%= @ride.end_date %>
+    <%= @ride.start_time %>
+    <%= @ride.end_time %>
+    <%= @ride.start_location %>
+    <%= @ride.end_location %>
+    <%= @ride.distance %>
+    <%= @ride.drop %>
+    <%= @ride.public %>
+  </div>
+
+  <div class="row">
+    <%= button_to "Edit Ride", edit_ride_path, class: "pairBtn btn btn-default", method: "get" %> 
+    <%= button_to "Delete Ride", ride_path, class: "pairBtn btn btn-default", method: "delete" %>
+  </div>
+
 </div>

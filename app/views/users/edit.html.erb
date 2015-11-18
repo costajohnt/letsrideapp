@@ -1,3 +1,5 @@
+<!-- users#edit -->
+
 <div class="col-sm-4 col-sm-offset-4">
 <!-- error div goes here -->
 <% if @user.errors.any? %>
@@ -15,11 +17,10 @@
 <% end %>
 </div>
 
-
 <div class="col-sm-4 col-sm-offset-4" id="sign-up-form">	
 	<%= form_for @user do |f| %>
 		<%= f.label :name %>
-		<%= f.text_field :name, class: 'form-control' %>
+		<%= f.text_field :name, class: "form-control" %>
 		<br>
 		<%= f.label :email %>
 		<%= f.text_field :email, class:'form-control' %>
@@ -30,8 +31,7 @@
 		<%= f.label :password_confirmation %>
 		<%= f.password_field :password_confirmation, class: 'form-control' %>
 		<div class="text-right">
-		<%= f.submit "Submit", class: 'btn btn-default' %>
+		  <%= f.submit "Update", class: "btn btn-default" %>
 		</div>
 	<% end %>
-
 </div>
