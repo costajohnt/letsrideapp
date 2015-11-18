@@ -1,5 +1,6 @@
 <%= form_for :ride do |f| %>
-	<div class="col-sm-4 col-sm-offset-4" id="new-post-form">
+	
+  <div class="col-sm-4 col-sm-offset-4" id="new-post-form">
 		<%= f.label :title %>
 		<%= f.text_field :title, class:'form-control' %>
 	<br>
@@ -20,23 +21,22 @@
 	<br>
 		<%= f.label :distance %>
 		<%= f.text_field :distance, size: "5x8", class: 'form-control'%>
+  <br>
+    <%= f.label :start_location %>
+    <%= f.text_field :start_location, size: "5x8", class: 'form-control'%>
+  <br>
+    <%= f.label :end_location %>
+    <%= f.text_field :end_location, size: "5x8", class: 'form-control'%>
+  <br>
+    <%= f.label :drop %>
+    <%= f.check_box :drop %>
+  <br>
+    <%= f.label :public %>
+    <%= f.check_box :public %>
 	<br>
-		<%= f.label :drop %>
-		<%= f.check_box :drop, {}, true, false %>
-	<br>
-		<%= f.label :public %>
-		<%= f.check_box :public, {}, true, false %>
-	<br>
-		<%= f.label :start_location %>
-		<%= f.text_field :start_location, size: "5x8", class: 'form-control'%>
-	<br>
-		<%= f.label :end_location %>
-		<%= f.text_field :end_location, size: "5x8", class: 'form-control'%>
-	<br>
-
-
-		<div class="text-right">
-			<%= f.submit "Submit", class:'btn btn-default' %>
-		</div>
+	<div class="text-right">
+		<%= f.submit "Submit", class:'btn btn-default' %>
 	</div>
+	</div>
+  
 <% end %>
