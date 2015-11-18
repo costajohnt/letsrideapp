@@ -27,12 +27,13 @@ class RidesController < ApplicationController
 
 	def show
     @ride = Ride.find(params[:id])
+    @user = User.find(params[:id])
     render :show
 	end
 
 	def destroy
     Ride.destroy(params[:id])
-    redirect_to @user
+    redirect_to user_path(current_user)
 	end
 
 	private
