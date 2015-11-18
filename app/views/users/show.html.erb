@@ -1,7 +1,8 @@
 <!-- users#show -->
 
 <div class="container">
-	<div class="row" id="profile-details">
+	
+  <div class="row" id="profile-details">
 
 		<div class="col-lg-7 col-md-6 col-sm-5" id="user-description">
 			<h2 id="user-name"><%= @user.name %></h2>
@@ -13,4 +14,11 @@
 		</div>
 
   </div>
+
+  <% @rides.each do |ride| %>
+    <div class="row">
+      <div class='well well-sm'><%= link_to ride.title, ride_path(ride.id), method: :get %></div>
+    </div>
+  <% end %>
+
 </div>
