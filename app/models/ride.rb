@@ -16,10 +16,14 @@
 #  end_location   :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  user_id        :integer
+#  slug           :string
 #
 
 class Ride < ActiveRecord::Base
 	has_many :ride_joinings, :foreign_key => :joined_ride_id
 	has_many :joiners, :through => :ride_joinings, :source => :joined_ride
 	belongs_to :user #:creator, :class_name => "User"
+	extend FriendlyId
+	friendly_id :title, use: :slugged
 end

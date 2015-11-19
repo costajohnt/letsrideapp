@@ -11,6 +11,7 @@ class RidesController < ApplicationController
 		if @ride.save
       @ride_joining = RideJoining.new
       @ride_joining.joined_ride_id = @ride.id
+			# associate Ride with user_id
 			redirect_to @ride
     else
       render :new
@@ -18,19 +19,19 @@ class RidesController < ApplicationController
 	end
 
 	def edit
-    @ride = Ride.find(params[:id])
+    @ride = Ride.friendly.find(params[:id])
     render :edit
 	end
 
 	def update
-    @ride = Ride.find(params[:id])
+    @ride = Ride.friendly.find(params[:id])
     @ride.update_attributes(ride_params)
+    # associate joiner with Ride
     redirect_to @ride
 	end
 
 	def show
-    @ride = Ride.find(params[:id])
-    # @ride_joining = RideJoining.find(params[:)
+    @ride = Ride.friendly.find(params[:id])
     render :show
 	end
 
