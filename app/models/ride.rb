@@ -26,4 +26,8 @@ class Ride < ActiveRecord::Base
 	belongs_to :user #:creator, :class_name => "User"
 	extend FriendlyId
 	friendly_id :title, use: :slugged
+
+	def self.search(search)
+	  where(start_location: "#{search}") 
+	end
 end

@@ -13,8 +13,5 @@
 class RideJoining < ActiveRecord::Base
 	belongs_to :ride_creator, :class_name => "User"
 	belongs_to :joined_ride, :class_name => "Ride"
-
-	extend FriendlyId
-friendly_id :title, use: :slugged
 end
 

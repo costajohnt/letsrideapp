@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
 	friendly_id :name, use: :slugged
 
 	has_attached_file :avatar,
-	                  :styles => { :medium => "150x150>", :thumb => "44x44#" },
+	                  :styles => { :medium => "300x300>", :thumb => "44x44#" },
 	                  :default_url => "/images/medium/missing.png"
 
 	validates_attachment :avatar,
