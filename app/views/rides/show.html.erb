@@ -2,6 +2,7 @@
 
 <div class="container">
 
+
   <div class="row">
     <%= @ride.title %>
     <%= @ride.description %>
@@ -21,4 +22,10 @@
     <%= button_to "Delete Ride", ride_path, class: "pairBtn btn btn-default", method: "delete" %>
   </div>
 
+  <div>
+    <%= button_to 'Join Ride', ride_path, method: :get %>
+  </div>
+
 </div>
+
+

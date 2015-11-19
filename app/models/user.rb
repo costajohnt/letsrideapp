@@ -11,7 +11,11 @@
 #
 
 class User < ActiveRecord::Base
-	has_many :rides
+	has_many :ride_joinings, :foreign_key => :ride_joiner_id
+	has_many :joined_rides, :through => :ride_joinings
+	has_many :created_rides, :foreign_key => :user_id, :class_name => "Ride"
+
+
 	has_secure_password
 
 	validates :name, presence: true
