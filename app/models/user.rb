@@ -2,13 +2,17 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  email           :string
-#  password_digest :string
-#  name            :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  slug            :string
+#  id                  :integer          not null, primary key
+#  email               :string
+#  password_digest     :string
+#  name                :string
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  slug                :string
+#  avatar_file_name    :string
+#  avatar_content_type :string
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
 #
 
 class User < ActiveRecord::Base
@@ -25,5 +29,13 @@ class User < ActiveRecord::Base
 
 	extend FriendlyId
 	friendly_id :name, use: :slugged
+
+	has_attached_file :avatar,
+	                  :styles => { :medium => "150x150>", :thumb => "44x44#" },
+	                  :default_url => "/images/:style/missing.png"
+
+	validates_attachment :avatar, :presence => true,
+	                     :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
+	                   
 
 end
