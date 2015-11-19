@@ -8,6 +8,7 @@ class RidesController < ApplicationController
 	def create
 		@ride = Ride.create(ride_params)
 		if @ride.save
+			# associate Ride with user_id
 			redirect_to @ride
     else
       render :new
@@ -15,18 +16,19 @@ class RidesController < ApplicationController
 	end
 
 	def edit
-    @ride = Ride.find(params[:id])
+    @ride = Ride.friendly.find(params[:id])
     render :edit
 	end
 
 	def update
-    @ride = Ride.find(params[:id])
+    @ride = Ride.friendly.find(params[:id])
     @ride.update_attributes(ride_params)
+    # associate joiner with Ride
     redirect_to @ride
 	end
 
 	def show
-    @ride = Ride.find(params[:id])
+    @ride = Ride.friendly.find(params[:id])
     render :show
 	end
 
