@@ -1,10 +1,7 @@
-
-
-
-<%= form_for :ride, url: rides_path do |f| %>
 <!-- rides#new -->
 
-	
+<%= form_for @ride do |f| %>
+
   <div class="col-sm-4 col-sm-offset-4" id="new-post-form">
 
   	<%= f.label :title %>
@@ -46,7 +43,6 @@
 
 	</div>
 
-
 <div id='map_simple' class='map'>
 <!-- <div id='errors'></div>
 <div id='directions'>
@@ -55,5 +51,6 @@
 </div> -->
 </div>
   
-
 <% end %>
+
+
