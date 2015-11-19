@@ -143,28 +143,10 @@
 		}
 		];
 
-		// var polyline_options = {
-		// 	color: '#000'
-		// };
-
-		var one = [geojson[0].geometry.coordinates[1], geojson[0].geometry.coordinates[0]];
-
-		var two = [geojson[1].geometry.coordinates[1], geojson[1].geometry.coordinates[0]];
-
-		var line_points = [[37.775408, -122.413682], [38.913184, -77.031952]];
-
-		console.log(line_points);
-
-		var mapSimple = L.mapbox.map('map_simple', 'mapbox.light')
+		var mapSimple = L.mapbox.map('map_simple', 'mapbox.streets')
 		.setView([38.89399, -77.03659], 17);
 
-		var myLayer = L.mapbox.featureLayer().setGeoJSON(geojson).addTo(mapSimple);
-
-		// var polyline = L.polyline(line_points, polyline_options).addTo(mapSimple);
-
-		mapSimple.scrollWheelZoom.disable();
-
-
+		var myLayer = L.mapbox.featureLayer().setGeoJSON(geojson);
 
 		var directions = L.mapbox.directions({
 			profile: 'mapbox.cycling'
