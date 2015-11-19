@@ -27,7 +27,6 @@ class RidesController < ApplicationController
 
 	def show
     @ride = Ride.find(params[:id])
-    @user = User.find(params[:id])
     render :show
 	end
 
