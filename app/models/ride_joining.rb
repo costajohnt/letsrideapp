@@ -6,7 +6,7 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  ride_joiner_id :integer
-#  creator_id     :integer
+#  joined_ride_id :integer
 #
 
 class RideJoining < ActiveRecord::Base
