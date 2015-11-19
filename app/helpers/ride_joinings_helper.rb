@@ -1,0 +1,2 @@
+module RideJoiningsHelper
+end
