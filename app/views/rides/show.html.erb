@@ -1,18 +1,9 @@
 <!-- rides#show -->
 
 <div class="container">
-
 		<h2 id="Ride"><%= @ride.title %></h2>
 		<div id='map'></div>
 </div>
-
-
-
-
-
-
-
-
 
   <div class="row">
     <%= @ride.title %>
@@ -34,7 +25,9 @@
   </div>
 
   <div>
-    <%= button_to 'Join Ride', ride_path, method: :get %>
+    <%= button_to 'Join Ride', ride_joinings_path, class: "btn btn-default", method: "post" %>
+
+    <%= button_to 'Join RIDES', {controller: :ride_joinings, :action => "create", :ride_joiner_id => current_user.id, :joined_ride_id => @ride.id } , :method=>:post  %>
   </div>
 
 </div>
