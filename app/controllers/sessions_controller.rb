@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+  
   #LOGIN FORM
   def new
     @user = User.new
@@ -7,14 +7,17 @@ class SessionsController < ApplicationController
 
   #LOGIN
   def create
-    @user = User.find_by(email: user_params[:email])
-    if @user.authenticate(user_params[:password])
-      session[:user_id] = @user.id
-      redirect_to user_path(current_user)
-    else
+  	@user = User.find_by(email: user_params[:email])
+   
+  	if @user.authenticate(user_params[:password])
+  		session[:user_id] = @user.id
+
+  		redirect_to user_path(current_user)
+  	else
       flash.now[:danger] = 'Invalid email/password combination'
       render :new
-   end
+    end
+
   end
 
   #LOGOUT
@@ -24,8 +27,11 @@ class SessionsController < ApplicationController
   end
 
   private
-    def user_params
-      params.require(:user).permit(:email, :password)
-    end
+  def user_params
+    params.require(:user).permit(:email, :password)
+  end
 
 end
+
+end
+
