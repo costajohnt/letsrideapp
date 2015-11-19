@@ -1,0 +1,8 @@
+<h1>hey</h1>
+<div class="container">
+  <% @rides.each do |ride| %>
+    <div class="row">
+      <div class='well well-sm'><%= link_to "#{ride.title}", ride_path(ride.id), method: "get" %></div>
+    </div>
+  <% end %>
+</div>
