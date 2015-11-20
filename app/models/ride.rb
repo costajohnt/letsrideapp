@@ -9,7 +9,6 @@
 #  end_date       :date
 #  start_time     :time
 #  end_time       :time
-#  distance       :integer
 #  drop           :boolean
 #  public         :boolean
 #  start_location :string
@@ -18,6 +17,8 @@
 #  updated_at     :datetime         not null
 #  user_id        :integer
 #  slug           :string
+#  latitude       :float
+#  longitude      :float
 #
 
 class Ride < ActiveRecord::Base
@@ -30,4 +31,11 @@ class Ride < ActiveRecord::Base
 	def self.search(search)
 	  where(start_location: "#{search}") 
 	end
+	
+	# def start_location
+	# 	@start_location
+	# end
+
+	geocoded_by :start_location			
+	after_validation :geocode
 end

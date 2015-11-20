@@ -1,14 +1,29 @@
 class RidesController < ApplicationController
 	before_action :correct_user, only: :destroy
+	
 	def index
-		  @rides = Ride.all
-		  if params[:q]
-		  	p "in if conditional"
-		    @rides = Ride.search(params[:q]).order("created_at DESC")
-		  else
-		  	p "in else conditional"
-		    @rides = Ride.all.order('created_at DESC')
+
+		# @ride = Ride.where(params[:q])
+		# 	if @ride.geocoded?
+		# 		@ride.nearbys(10)
+		# 	end
+		  @rides = Ride.near(params[:q], 10)
+		  @rides.each do |r|
+		  	p r.geocoded?
+		  	p params[:q]
 		  end
+		  #  if @rides.geocoded?
+		  # 		@rides.nearbys(10)
+
+		  # 		p Ride.find(params[:q]).geocoded?
+		  # end
+		  # if params[:q]
+		  # 	p "in if conditional"
+		  #   @rides = Ride.search(params[:q]).order("created_at DESC")
+		  # else
+		  # 	p "in else conditional"
+		  #   @rides = Ride.all.order('created_at DESC')
+		  # end
 	end
 
 
@@ -53,7 +68,7 @@ class RidesController < ApplicationController
 	private
 
 	def ride_params
-		params.require(:ride).permit(:title, :start_date, :end_date, :start_time, :end_time, :start_location, :end_location, :description, :distance, :drop, :public, :user_id)
+		params.require(:ride).permit(:title, :start_date, :end_date, :start_time, :end_time, :start_location, :end_location, :description, :drop, :public, :user_id)
 	end
 
 	def correct_user

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119032351) do
+ActiveRecord::Schema.define(version: 20151120003754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 20151119032351) do
     t.date     "end_date"
     t.time     "start_time"
     t.time     "end_time"
-    t.integer  "distance"
     t.boolean  "drop"
     t.boolean  "public"
     t.string   "start_location"
@@ -39,6 +38,8 @@ ActiveRecord::Schema.define(version: 20151119032351) do
     t.datetime "updated_at",     null: false
     t.integer  "user_id"
     t.string   "slug"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "rides", ["slug"], name: "index_rides_on_slug", unique: true, using: :btree

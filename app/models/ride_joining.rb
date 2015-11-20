@@ -7,7 +7,6 @@
 #  updated_at     :datetime         not null
 #  ride_joiner_id :integer
 #  joined_ride_id :integer
-#  slug           :string
 #
 
 class RideJoining < ActiveRecord::Base
