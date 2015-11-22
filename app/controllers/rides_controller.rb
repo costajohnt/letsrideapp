@@ -2,31 +2,11 @@ class RidesController < ApplicationController
 	before_action :correct_user, only: :destroy
 	
 	def index
-
-		# @ride = Ride.where(params[:q])
-		# 	if @ride.geocoded?
-		# 		@ride.nearbys(10)
-		# 	end
-		  @rides = Ride.near(params[:q], 10)
-		  @rides.each do |r|
-		  	p r.geocoded?
-		  	p params[:q]
-		  end
-		  #  if @rides.geocoded?
-		  # 		@rides.nearbys(10)
-
-		  # 		p Ride.find(params[:q]).geocoded?
-		  # end
-		  # if params[:q]
-		  # 	p "in if conditional"
-		  #   @rides = Ride.search(params[:q]).order("created_at DESC")
-		  # else
-		  # 	p "in else conditional"
-		  #   @rides = Ride.all.order('created_at DESC')
-		  # end
-	end
-
-
+	    @rides = Ride.near(params[:q], 10)
+		@rides.each do |r|
+    	end
+    end
+	
 	def new
 		@ride = Ride.new
 		render :new
@@ -77,3 +57,21 @@ class RidesController < ApplicationController
 	end
 
 end
+
+# @ride = Ride.where(params[:q])
+# 	if @ride.geocoded?
+# 		@ride.nearbys(10)
+# 	end
+
+		  #  if @rides.geocoded?
+		  # 		@rides.nearbys(10)
+
+		  # 		p Ride.find(params[:q]).geocoded?
+		  # end
+		  # if params[:q]
+		  # 	p "in if conditional"
+		  #   @rides = Ride.search(params[:q]).order("created_at DESC")
+		  # else
+		  # 	p "in else conditional"
+		  #   @rides = Ride.all.order('created_at DESC')
+		  # end

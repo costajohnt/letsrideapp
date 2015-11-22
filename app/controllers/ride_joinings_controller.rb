@@ -8,16 +8,8 @@ class RideJoiningsController < ApplicationController
   end
 
   def create
-    p params
-    # @ride = Ride.find(9)
-    # @ride_joining = RideJoining.new
-    # @ride_joining.ride_joiner_id = 12
-    # @ride_joining.joined_ride_id = 2
     @ride_joining = RideJoining.create(join_params)
     @ride_joining.save
-
-    p join_params
-    print 'HelloOOOOOOO'
   end
 
   def edit

@@ -1,0 +1,14 @@
+.navbar-custom {
+	background-color: #1c1d21;
+	border-radius: 0 !important;
+}
+
+.navbar { 
+	font-family: 'Helvetica'; 
+	font-size: 15px;
+}
+
+.navbar-custom a {
+	 color: #EEEFF7;
+}
+
