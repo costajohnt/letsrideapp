@@ -15,12 +15,14 @@
 		</div>
 
   </div>
+  <% @rides.each do |ride| %> 
+  <% @ridenames.each do |ridename| %> 
+  <% if ride.joined_ride_id == ridename.id %>
+        <div class="row">
+        	<div class='well well-sm'><%= link_to "#{ridename.title}", ride_path(ride.joined_ride_id), method: "get" %></div>
+    	</div>
+	<% end %>
+	<% end %>
+	<% end %>
 
-  <% @rides.each do |ride| %>
-    <div class="row">
-      <div class='well well-sm'><%= link_to "#{ride.title}", ride_path(ride.id), method: "get" %></div>
-    </div>
-  <% end %>
 </div>
-
-
