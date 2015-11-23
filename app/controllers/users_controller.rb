@@ -31,11 +31,6 @@ class UsersController < ApplicationController
     @user = User.friendly.find(params[:id])
     @rides = RideJoining.where(ride_joiner_id: current_user)
     @ridenames = Ride.all
-    # @rides = Ride.find_by_id(@ride_joining.joined_ride_id)
-    # @rides = Ride.all
-    # @rides = RideJoining.where(ride_joiner_id: current_user)
-
-
   end
 
   private

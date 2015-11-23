@@ -38,7 +38,6 @@ class RidesController < ApplicationController
 	def show
 		@ride = Ride.friendly.find(params[:id])
 		@joined_rides = RideJoining.where(joined_ride_id: @ride.id)
-
 		render :show
 	end
 

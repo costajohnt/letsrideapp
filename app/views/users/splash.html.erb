@@ -1,18 +1,8 @@
 <!-- users#splash -->
-
-<div class="container">
-
-  <div class="row">
-    <div class="col-sm-6">
-      Map Goes Here
-    </div>
-    <div class="col-sm-6">
-      Video goes here
+<body>
+  <div class="wrapper">
+    <div class="text-center">
+       <%= button_to "Sign Up", new_user_path, class: "btn btn-default", method: "get" %> 
     </div>
   </div>
-  
-  <div class="row text-center">
-    <%= button_to "Sign Up", new_user_path, class: "btn btn-default", method: "get" %>
-  </div>
-
-</div>
+</body>
