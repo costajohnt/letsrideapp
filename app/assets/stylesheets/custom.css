@@ -13,6 +13,12 @@
 	 color: white;
 }
 
+#home {
+	 font-family: 'Londrina Outline', cursive;
+	 font-size: 24px;
+	 }
+
+
 .wrapper {
 	height: 100vh;
 	background: url('http://i.imgur.com/MvUMjgw.jpg') no-repeat   center center fixed;
@@ -65,11 +71,12 @@ background-size: 100% auto;
 }
 
 .splashcontent {
-/*	margin-top: -40px;*/
+	margin-top: -40px;
 	text-align: left;
-	margin-left: 25px;
-	font-family: 'Arial'; 
-	font-size: 20px;
+	margin-left: 28px;
+	/*font-family: 'Cabin', sans-serif; */
+	font-family: 'Droid Serif', serif;
+	font-size: 18px;
 	color: white;
 	font-weight: bold;
 	line-height: 200%;
@@ -87,7 +94,12 @@ background-size: 100% auto;
  	margin-top: -15px;
  }
  #splashhead {
- 	font-size: 48px;
+ 	margin-left: -10px;
+ 	margin-top: 20px;
+ 	font-size: 68px;
+ 	font-family: 'Londrina Outline', cursive;
+ /*	font-family: 'Just Me Again Down Here', cursive;*/
+ 	/*font-family: 'Reenie Beanie', cursive;*/
  }
 
 /*'http://i.imgur.com/oDRZ3ZD.jpg?1*/*/

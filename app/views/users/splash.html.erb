@@ -14,7 +14,7 @@
     </div>
 <!--     <div id="triangle"> -->
     <div class="splashcontent"> 
-      <h1 id="splashhead">Let's Ride</h1>
+      <h1 id="splashhead">LET'S RIDE</h1>
         <p>
           Host, join, and discover  <br>
           group cycling rides in    <br>
@@ -24,7 +24,7 @@
         </p>
     </div>
 <!-- </div> -->
-     <div class="text-center" id="signupgroup">
+     <div class="container text-center" id="signupgroup">
      <% if current_user.blank? %>
        <%= button_to "Sign Up", new_user_path, class: "btn btn-lg", id: "signup", method: "get" %><br><p id="or">or</p><br>
        <% end %>
