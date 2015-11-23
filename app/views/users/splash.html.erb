@@ -3,17 +3,17 @@
 
   <div class="wrapper">
     <div class="text-right" id="splash_login"><%= link_to "Log in", new_session_path, method: "get" %></div>
-
-    <div id="triangle">
- 
-     Let's Ride
-     Create custom routes with our map feature.
-     Invite your friends to join the ride.
-     Search for rides in your area.  
-     Find new friends to ride with.
-  
+    <div id="splashcontent"> 
+      <h1>Let's Ride</h1>
+        <p>
+         Create custom routes with our map feature.<br>
+         Invite your friends to join the ride.<br>
+         Search for rides in your area.  <br>
+         Find new friends to ride with.<br>
+        </p>
     </div>
-    <div class="text-center" id="signupgroup">
+
+     <div class="text-center" id="signupgroup">
        <%= button_to "Sign Up", new_user_path, class: "btn btn-lg", id: "signup", method: "get" %><br>or<br>
        <%= form_tag rides_path, { method: "get", :class => 'navbar-form', :role => 'search'} do %>
        <div class="input-group input-group-lg">

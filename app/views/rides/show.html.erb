@@ -40,7 +40,7 @@
 
 <% if current_user && check_if_joined  %>
 <div>
-  <%= button_to 'Join RIDES', { class: "pairBtn btn btn-default", controller: :ride_joinings, :action => "create", :ride_joiner_id => current_user.id, :joined_ride_id => @ride.id } , :method=>:post  %>
+  <%= button_to 'Join Ride', { :class => "pairBtn btn btn-default", controller: :ride_joinings, :action => "create", :ride_joiner_id => current_user.id, :joined_ride_id => @ride.id } , :method=>:post  %>
 </div>
 <% end %>
 </div>
