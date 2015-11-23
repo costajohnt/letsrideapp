@@ -20,6 +20,11 @@
 <div class="row col-md-3 col-sm-3 col-md-offset-9 col-sm-offset-9">
   <h3>Confirmed Riders</h3>
   APPEND RIDE JOINERS HERE
+  
+  <% @joined_rides.each do |r| %>
+    <%= User.find(r.ride_joiner_id).name %>
+  <% end %>
+
 </div>
 
 <% if session[:user_id] == @ride.user_id %>
@@ -35,5 +40,3 @@
 </div>
 <% end %>
 </div>
-
-
