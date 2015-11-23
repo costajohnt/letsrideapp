@@ -2,6 +2,7 @@
 .navbar-custom {
 	background-color: #075572;
 	border-radius: 0 !important;
+	opacity: .80;
 }
 
 .navbar { 
@@ -30,6 +31,7 @@ background-size: 100% auto;
 
 .btn {
   background-color: #075572 !important;
+  opacity: .80;
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#303030", endColorstr="#111111");
   background-image: -khtml-gradient(linear, left top, left bottom, from(#303030), to(#111111));
@@ -59,7 +61,7 @@ background-size: 100% auto;
 }*/
 
 #signupgroup {
-	margin-top: 20%;
+	margin-top: 15%;
 }
 
 #loginform {
@@ -95,11 +97,16 @@ background-size: 100% auto;
  }
  #splashhead {
  	margin-left: -10px;
- 	margin-top: 20px;
+ 	margin-top: 0px;
  	font-size: 68px;
  	font-family: 'Londrina Outline', cursive;
  /*	font-family: 'Just Me Again Down Here', cursive;*/
  	/*font-family: 'Reenie Beanie', cursive;*/
+ }
+
+ #splashlog {
+ 	padding-top: 20px;
+ 	padding-right: 20px;
  }
 
 /*'http://i.imgur.com/oDRZ3ZD.jpg?1*/*/

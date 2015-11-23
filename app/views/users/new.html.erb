@@ -1,8 +1,8 @@
 <!-- users#new -->
 
 <div class="col-sm-4 col-sm-offset-4">
-<!-- error div goes here -->
-<% if @user.errors.any? %>
+  <!-- error div goes here -->
+  <% if @user.errors.any? %>
   <div id="error_explanation">
     <h2 class="error-warning">
       <%= pluralize(@user.errors.count, "error") %> prohibited
@@ -14,26 +14,26 @@
       <% end %>
     </ul>
   </div>
-<% end %>
+  <% end %>
 </div>
 
 <div class="col-sm-4 col-sm-offset-4" id="sign-up-form">
   
   <%= form_for @user, :url => users_path, :html => { :multipart => true } do |f| %>
-		<%= f.label 'Profile Image' %>
-  		<%= f.file_field :avatar %>
-  		<br>
-		<%= f.text_field :name, class: 'form-control', placeholder: 'name' %>
-		<br>
-		<%= f.text_field :email, class: "form-control", placeholder: 'email' %>
-		<br>
-		<%= f.password_field :password, class: "form-control", placeholder: 'password' %>
-		<br>
-		<%= f.password_field :password_confirmation, class: "form-control", placeholder: 'confirm password' %>
-		<br>
-		<div class="text-right">
-		  <%= f.submit "Sign Up", class: "btn btn-default" %>
-		</div>
-	<% end %>
+  <%= f.label 'Profile Image' %>
+  <%= f.file_field :avatar %>
+  <br>
+  <%= f.text_field :name, class: 'form-control', placeholder: 'name' %>
+  <br>
+  <%= f.text_field :email, class: "form-control", placeholder: 'email' %>
+  <br>
+  <%= f.password_field :password, class: "form-control", placeholder: 'password' %>
+  <br>
+  <%= f.password_field :password_confirmation, class: "form-control", placeholder: 'confirm password' %>
+  <br>
+  <div class="text-right">
+    <%= f.submit "Sign Up", class: "btn btn-default" %>
+  </div>
+  <% end %>
 
 </div>
