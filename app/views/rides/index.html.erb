@@ -1,4 +1,3 @@
-<h1>hey</h1>
 <div class="container">
   <% @rides.each do |ride| %>
     <div class="row">
@@ -6,3 +5,5 @@
     </div>
   <% end %>
 </div>
+
+<%= will_paginate @rides %>

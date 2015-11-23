@@ -8,13 +8,11 @@
 			<div><%= image_tag @user.avatar.url(:medium) %></div>
 			<h2 id="user-name"><%= @user.name %></h2>
 			<h4>Joined: <%= @user.created_at.strftime("%B %Y") %></h4>
-		</div>
-
-		<div class="col-sm-1">
 			<%= button_to "Edit Profile", edit_user_path(current_user), class: "btn btn-default", method: "get" %>
 		</div>
-
   </div>
+  <br>
+  <div class="row contaner col-sm-6 col-sm-offset-3">
   <% @rides.each do |ride| %> 
   <% @ridenames.each do |ridename| %> 
   <% if ride.joined_ride_id == ridename.id %>
@@ -24,13 +22,7 @@
 	<% end %>
 	<% end %>
 	<% end %>
-
-	<div id='map'>
-<div id='errors'></div>
-<div id='directions'>
-
+	</div>
 </div>
-</div>
-
-</div>
+<%= will_paginate @rides %>
 

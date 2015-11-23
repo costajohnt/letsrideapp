@@ -29,8 +29,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.friendly.find(params[:id])
-    @rides = RideJoining.where(ride_joiner_id: current_user)
+    @rides = RideJoining.where(ride_joiner_id: current_user).reverse_order.all.paginate(page: params[:page], per_page: 5)
     @ridenames = Ride.all
+  end
+
+  def splash
+    @disable_nav = true
   end
 
   private
@@ -39,7 +43,7 @@ class UsersController < ApplicationController
     end
 
     def user_params_edit
-      params.require(:user).permit(:email, :name, :password)
+      params.require(:user).permit(:email, :name, :password, :avatar)
     end
     
 end

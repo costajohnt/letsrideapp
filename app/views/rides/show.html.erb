@@ -5,21 +5,35 @@
   <h3 id="Ride"><%= @ride.title %></h3>
 
 <div class="row">
-  <%= @ride.description %>
-  <%= @ride.start_date %>
-  <%= @ride.end_date %>
-  <%= @ride.start_time %>
-  <%= @ride.end_time %>
-  <%= @ride.start_location %>
-  <%= @ride.end_location %>
-  <%= @ride.drop %>
-  <%= @ride.public %>
+  description:
+  <%= @ride.description %><br>
+  ride date:
+  <%= @ride.start_date %><br>
+  end date:
+  <%= @ride.end_date %><br>
+  start time:
+  <%= @ride.start_time %><br>
+  end time:
+  <%= @ride.end_time %><br>
+  meeting place:
+  <%= @ride.start_location %><br>
+  end place:
+  <%= @ride.end_location %><br>
+  Is this a drop ride?
+  <%= @ride.drop %><br>
+  Is this ride open to the public?
+  <%= @ride.public %><br>
 </div>
 
 
 <div class="row col-md-3 col-sm-3 col-md-offset-9 col-sm-offset-9">
   <h3>Confirmed Riders</h3>
   APPEND RIDE JOINERS HERE
+  
+  <% @joined_rides.each do |r| %>
+    <%= User.find(r.ride_joiner_id).name %>
+  <% end %>
+
 </div>
 
 <% if session[:user_id] == @ride.user_id %>
@@ -30,10 +44,7 @@
 <% end %>
 
 <% if current_user && check_if_joined  %>
-<div>
-  <%= button_to 'Join Ride', { controller: :ride_joinings, :action => "create", :ride_joiner_id => current_user.id, :joined_ride_id => @ride.id } , :method=>:post  %>
+<div>  <%= button_to 'Join Ride', { :class => "pairBtn btn btn-default", controller: :ride_joinings, :action => "create", :ride_joiner_id => current_user.id, :joined_ride_id => @ride.id } , :method=>:post  %>
 </div>
 <% end %>
 </div>
-
-
