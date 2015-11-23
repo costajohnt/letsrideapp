@@ -1,47 +1,39 @@
 <!-- rides#show -->
 
 <div class="container">
-		<h3 id="Ride"><%= @ride.title %></h3>
-		<div id='map'></div>
+  <h3 id="Ride"><%= @ride.title %></h3>
+  <div id='map'></div>
+
+<div class="row">
+  <%= @ride.description %>
+  <%= @ride.start_date %>
+  <%= @ride.end_date %>
+  <%= @ride.start_time %>
+  <%= @ride.end_time %>
+  <%= @ride.start_location %>
+  <%= @ride.end_location %>
+  <%= @ride.drop %>
+  <%= @ride.public %>
 </div>
 
-  <div class="row">
-    <%= @ride.description %>
-    <%= @ride.start_date %>
-    <%= @ride.end_date %>
-    <%= @ride.start_time %>
-    <%= @ride.end_time %>
-    <%= @ride.start_location %>
-    <%= @ride.end_location %>
-    <%= @ride.drop %>
-    <%= @ride.public %>
-  </div>
 
-
-  <div class="row col-md-3 col-sm-3 col-md-offset-9 col-sm-offset-9">
-    <h3>Confirmed Riders</h3>
-    APPEND RIDE JOINERS HERE
-  </div>
-
-  <% if session[:user_id] == @ride.user_id %>
-  <div class="row">
-    <%= button_to "Edit Ride", edit_ride_path, class: "pairBtn btn btn-default", method: "get" %> 
-    <%= button_to "Delete Ride", ride_path, class: "pairBtn btn btn-default", method: "delete" %>
-  </div>
-  <% end %>
-
-  <% if session[:user_id] %>
-  <div>
-    <%= button_to 'Join Ride', ride_joinings_path, class: "btn btn-default", method: "post" %>
-
-    <%= button_to 'Join RIDES', { controller: :ride_joinings, :action => "create", :ride_joiner_id => current_user.id, :joined_ride_id => @ride.id } , :method=>:post  %>
-  </div>
-  <% end %>
-  
-
-  
-
+<div class="row col-md-3 col-sm-3 col-md-offset-9 col-sm-offset-9">
+  <h3>Confirmed Riders</h3>
+  APPEND RIDE JOINERS HERE
 </div>
 
+<% if session[:user_id] == @ride.user_id %>
+<div class="row">
+  <%= button_to "Edit Ride", edit_ride_path, class: "pairBtn btn btn-default", method: "get" %> 
+  <%= button_to "Delete Ride", ride_path, class: "pairBtn btn btn-default", method: "delete" %>
+</div>
+<% end %>
+
+<% if current_user && check_if_joined  %>
+<div>
+  <%= button_to 'Join RIDES', { controller: :ride_joinings, :action => "create", :ride_joiner_id => current_user.id, :joined_ride_id => @ride.id } , :method=>:post  %>
+</div>
+<% end %>
+</div>
 
 
