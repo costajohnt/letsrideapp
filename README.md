@@ -24,8 +24,17 @@ github: https://github.com/isomdurm/lets_ride
 ##Libraries Used
 
 ##Wishlist/Future Development
+-more and better styling on all pages
+-advanced search options like average speed, distance of ride, allow users to set search radius parameters instead of the default 10 miles from search location
+-allow users to save routes they created in a personal library to reuse later for future ride events
+-allow users to invite members via email or Let's Ride username and have them recieve the email 
+-setup a comments section/group chat on rides show page so users can have a dialogue about the ride and planning
+-allow users to send direct messages to one another
+
 
 ##Contributors
-
+John Costa: https://github.com/costajohnt
+Isom Durm: https://github.com/isomdurm
+Mike Xi: https://github.com/miekmiek
 
 
