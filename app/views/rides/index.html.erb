@@ -4,6 +4,9 @@
       <div class='well well-sm'><%= link_to "#{ride.title}", ride_path(ride.id), method: "get" %></div>
     </div>
   <% end %>
+  <% if @rides.empty? %>
+  <h1 class="text-center">Search yielded no results.  Try again in a different area.</h1>
+  <% end %>
 </div>
 
 <%= will_paginate @rides %>

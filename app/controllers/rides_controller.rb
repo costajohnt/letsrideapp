@@ -1,9 +1,13 @@
 class RidesController < ApplicationController
-	
+
 	def index
 	    @rides = Ride.near(params[:q], 10).reverse_order.all.paginate(page: params[:page], per_page: 5)
+	  	if @rides.nil? 
+    		 flash[:notice] = "your search criteria is invalid. Please try using valid keywords" 
+	    else 
 		@rides.each do |r|
     	end
+    end
     end
 	
 	def new
@@ -41,7 +45,8 @@ class RidesController < ApplicationController
 	end
 
 	def destroy
-    @ride = Ride.friendly.find(params[:id])
+
+		@ride = Ride.friendly.find(params[:id])
 		@ride.destroy
 		redirect_to user_path(current_user)
 	end
