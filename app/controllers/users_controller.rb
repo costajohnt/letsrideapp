@@ -29,7 +29,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.friendly.find(params[:id])
-    @rides = Ride.all
+    @rides = RideJoining.where(ride_joiner_id: current_user)
+    @ridenames = Ride.all
   end
 
   private
