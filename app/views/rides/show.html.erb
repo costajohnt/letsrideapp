@@ -1,8 +1,8 @@
 <!-- rides#show -->
 
+
 <div class="container">
   <h3 id="Ride"><%= @ride.title %></h3>
-  <div id='map'></div>
 
 <div class="row">
   <%= @ride.description %>
@@ -31,9 +31,17 @@
 
 <% if current_user && check_if_joined  %>
 <div>
-  <%= button_to 'Join RIDES', { controller: :ride_joinings, :action => "create", :ride_joiner_id => current_user.id, :joined_ride_id => @ride.id } , :method=>:post  %>
+  <%= button_to 'Join Ride', { controller: :ride_joinings, :action => "create", :ride_joiner_id => current_user.id, :joined_ride_id => @ride.id } , :method=>:post  %>
 </div>
 <% end %>
 </div>
 
+<div id='map'>
+<div id='inputs'></div>
+<div id='errors'></div>
+<div id='directions'>
+  <div id='routes'></div>
+  <div id='instructions'></div>
+</div>
+</div>
 

@@ -2,29 +2,29 @@
 <html>
 <head>
 
-
 	<meta charset='utf-8' />
 	<title></title>
 	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
+	<title>LetsRide</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+	<link href="/app/assests/stylesheets/custom.css">
 
 	<script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
 	<link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
-
-	<script src='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.js'></script>
-	<link rel='stylesheet' href='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.css' type='text/css' />
-
-
 	<style>
+  body { margin:0; padding:0; }
+  #map { position:relative; top:0; bottom:0; width:500px; height:500px; }
+</style>
+</head>
 
-	#inputs,
-#errors,
-#directions {
-    position: absolute;
-    width: 33.3333%;
-    max-width: 300px;
-    min-width: 200px;
-}
+<body>
+
+<style>
 
 #inputs {
     z-index: 10;
@@ -41,98 +41,23 @@
     overflow: auto;
 }
 
-		.map {margin-left: 250px; width:500px; height:500px;}
+#errors {
+    z-index: 8;
+    opacity: 0;
+    padding: 10px;
+    border-radius: 0 0 3px 3px;
+    background: rgba(0,0,0,.25);
+    top: 90px;
+    left: 10px;
+}
 
-		#errors {
-			position: absolute;
-			width: 33.3333%;
-			max-width: 300px;
-			min-width: 200px;
-		}
+</style>
 
-		#errors {
-			z-index: 8;
-			opacity: 0;
-			padding: 10px;
-			border-radius: 0 0 3px 3px;
-			background: rgba(0,0,0,.25);
-			top: 90px;
-			left: 10px;
-		}
+<script src='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.css' type='text/css' />
 
-	</style>
-
-
-	<title>LetsRide</title>
-	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	<%= csrf_meta_tags %>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-	<link href="/app/assests/stylesheets/custom.css">
-</head>
-<body>
-	<script>
-
-		L.mapbox.accessToken = 'pk.eyJ1IjoiaXNvbWR1cm0iLCJhIjoiY2loNThoYXh3MDBoNnRza290enF6YWNobiJ9.gm2YkuDsq--gEyl1YGCL_g';
-
-		var geojson = [
-		{
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [-77.031952, 38.913184]
-			},
-			"properties": {
-				"marker-color": "#3ca0d3",
-				"marker-size": "large",
-				"marker-symbol": "rocket"
-			}
-		},
-		{
-			"type": "Feature",
-			"geometry": {
-				"type": "Point",
-				"coordinates": [-122.413682, 37.775408]
-			},
-			"properties": {
-				"marker-color": "#63b6e5",
-				"marker-size": "large",
-				"marker-symbol": "rocket"
-			}
-		}
-		];
-
-		var mapSimple = L.mapbox.map('map_simple', 'mapbox.streets')
-		.setView([38.89399, -77.03659], 17);
-
-		var myLayer = L.mapbox.featureLayer().setGeoJSON(geojson);
-
-		var directions = L.mapbox.directions({
-			profile: 'mapbox.cycling'
-		}).setOrigin(geojson[0]).setDestination(geojson[1]);
-
-		console.log(directions)
-
-		var directionsLayer = L.mapbox.directions.layer(directions)
-    		.addTo(mapSimple);
-
-		var directionsInputControl = L.mapbox.directions.inputControl('inputs', directions)
-		    .addTo(mapSimple);
-
-		var directionsErrorsControl = L.mapbox.directions.errorsControl('errors', directions)
-		    .addTo(mapSimple);
-
-		var directionsRoutesControl = L.mapbox.directions.routesControl('routes', directions)
-		    .addTo(mapSimple);
-
-		var directionsInstructionsControl = L.mapbox.directions.instructionsControl('instructions', directions)
-		    .addTo(mapSimple);
-
-	</script>
 <%= render partial: "layouts/nav" %>
 <%= yield %>
-
-
 </body>
+
 </html>
