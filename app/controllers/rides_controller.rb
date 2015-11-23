@@ -2,7 +2,7 @@ class RidesController < ApplicationController
 	before_action :correct_user, only: :destroy
 	
 	def index
-	    @rides = Ride.near(params[:q], 10)
+	    @rides = Ride.near(params[:q], 10).reverse_order.all.paginate(page: params[:page], per_page: 5)
 		@rides.each do |r|
     	end
     end

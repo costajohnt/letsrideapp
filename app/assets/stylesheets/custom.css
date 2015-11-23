@@ -1,6 +1,6 @@
 
 .navbar-custom {
-	background-color: #1c1d21;
+	background-color: #075572;
 	border-radius: 0 !important;
 }
 
@@ -72,4 +72,9 @@ background-size: 100% auto;
 	color: #075572;
 	font-weight: bold;
 }
+
+ #new-post-form {
+ 	margin-top: 5%;
+ }
+
 
