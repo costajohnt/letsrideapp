@@ -15,7 +15,7 @@
 
 .wrapper {
 	height: 100vh;
-	background: url('http://i.imgur.com/oDRZ3ZD.jpg?1') no-repeat   center center fixed;
+	background: url('http://i.imgur.com/MvUMjgw.jpg') no-repeat   center center fixed;
 -webkit-background-size: 100% auto;
 -moz-background-size: 100% auto;
 -o-background-size: 100% auto;
@@ -48,11 +48,12 @@ background-size: 100% auto;
 	border-width: 700px 600px 0 0;
 	border-color: #075572 transparent transparent transparent;
 	margin-top: -20px;
+	opacity: 0.8;
 
-}
-*/
+}*/
+
 #signupgroup {
-	margin-top: 25%;
+	margin-top: 20%;
 }
 
 #loginform {
@@ -63,15 +64,16 @@ background-size: 100% auto;
 	margin-top: 8%;
 }
 
-#splashcontent {
-	margin-top: -40px;
+.splashcontent {
+/*	margin-top: -40px;*/
 	text-align: left;
-	margin-left: 40px;
+	margin-left: 25px;
 	font-family: 'Arial'; 
-	font-size: 24px;
-	color: #075572;
+	font-size: 20px;
+	color: white;
 	font-weight: bold;
-}
+	line-height: 200%;
+	}
 
  #new-post-form {
  	margin-top: 5%;
@@ -83,7 +85,10 @@ background-size: 100% auto;
  	font-size: 20px;
  	margin-bottom: -20px;
  	margin-top: -15px;
-
+ }
+ #splashhead {
+ 	font-size: 48px;
  }
 
+/*'http://i.imgur.com/oDRZ3ZD.jpg?1*/*/
 

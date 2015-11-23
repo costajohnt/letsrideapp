@@ -12,16 +12,18 @@
     <div id="splash_login"><%= link_to "Log in", new_session_path, method: "get" %></div>
     <% end %>
     </div>
-    <div id="splashcontent"> 
-      <h1>Let's Ride</h1>
+<!--     <div id="triangle"> -->
+    <div class="splashcontent"> 
+      <h1 id="splashhead">Let's Ride</h1>
         <p>
-          Host, join, and discover group <br>
-          cycling rides in your area.   <br>
-          Riding with friends  <br>
+          Host, join, and discover  <br>
+          group cycling rides in    <br>
+          your area.  Riding <br>
+          with friends is  <br>
           always better. <br>
         </p>
     </div>
-
+<!-- </div> -->
      <div class="text-center" id="signupgroup">
      <% if current_user.blank? %>
        <%= button_to "Sign Up", new_user_path, class: "btn btn-lg", id: "signup", method: "get" %><br><p id="or">or</p><br>
