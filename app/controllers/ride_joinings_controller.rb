@@ -10,6 +10,7 @@ class RideJoiningsController < ApplicationController
   def create
     @ride_joining = RideJoining.create(join_params)
     @ride_joining.save
+    redirect_to :back
   end
 
   def edit
