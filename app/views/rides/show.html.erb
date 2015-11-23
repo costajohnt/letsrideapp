@@ -5,15 +5,24 @@
   <div id='map'></div>
 
 <div class="row">
-  <%= @ride.description %>
-  <%= @ride.start_date %>
-  <%= @ride.end_date %>
-  <%= @ride.start_time %>
-  <%= @ride.end_time %>
-  <%= @ride.start_location %>
-  <%= @ride.end_location %>
-  <%= @ride.drop %>
-  <%= @ride.public %>
+  description:
+  <%= @ride.description %><br>
+  ride date:
+  <%= @ride.start_date %><br>
+  end date:
+  <%= @ride.end_date %><br>
+  start time:
+  <%= @ride.start_time %><br>
+  end time:
+  <%= @ride.end_time %><br>
+  meeting place:
+  <%= @ride.start_location %><br>
+  end place:
+  <%= @ride.end_location %><br>
+  Is this a drop ride?
+  <%= @ride.drop %><br>
+  Is this ride open to the public?
+  <%= @ride.public %><br>
 </div>
 
 
@@ -31,7 +40,7 @@
 
 <% if current_user && check_if_joined  %>
 <div>
-  <%= button_to 'Join RIDES', { controller: :ride_joinings, :action => "create", :ride_joiner_id => current_user.id, :joined_ride_id => @ride.id } , :method=>:post  %>
+  <%= button_to 'Join RIDES', { class: "pairBtn btn btn-default", controller: :ride_joinings, :action => "create", :ride_joiner_id => current_user.id, :joined_ride_id => @ride.id } , :method=>:post  %>
 </div>
 <% end %>
 </div>
