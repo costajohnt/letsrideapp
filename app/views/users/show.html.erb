@@ -7,7 +7,7 @@
 		<div class="col-lg-7 col-md-6 col-sm-5" id="user-description">
 			<div><%= image_tag @user.avatar.url(:medium) %></div>
 			<h2 id="user-name"><%= @user.name %></h2>
-			<h4>Joined: <%= @user.created_at.strftime("%B %Y") %></h4>
+			<h5>Member Since: <%= @user.created_at.strftime("%B %Y") %></h5>
 			<%= button_to "Edit Profile", edit_user_path(current_user), class: "btn btn-default", method: "get" %>
 		</div>
   </div>
