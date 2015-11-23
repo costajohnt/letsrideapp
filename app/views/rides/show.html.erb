@@ -1,51 +1,84 @@
 <!-- rides#show -->
 
 <div class="container">
-  <h3 id="Ride"><%= @ride.title %></h3>
-  <div id='map'></div>
 
-<div class="row">
-  description:
-  <%= @ride.description %><br>
-  ride date:
-  <%= @ride.start_date %><br>
-  end date:
-  <%= @ride.end_date %><br>
-  start time:
-  <%= @ride.start_time %><br>
-  end time:
-  <%= @ride.end_time %><br>
-  meeting place:
-  <%= @ride.start_location %><br>
-  end place:
-  <%= @ride.end_location %><br>
-  Is this a drop ride?
-  <%= @ride.drop %><br>
-  Is this ride open to the public?
-  <%= @ride.public %><br>
-</div>
+  <div class="row">
 
+    <div class="col-sm-5 col-sm-offset-1">
 
-<div class="row col-md-3 col-sm-3 col-md-offset-9 col-sm-offset-9">
-  <h3>Confirmed Riders</h3>
-  APPEND RIDE JOINERS HERE
-  
-  <% @joined_rides.each do |r| %>
-    <%= User.find(r.ride_joiner_id).name %>
-  <% end %>
+      <h2 id="Ride"> <%= @ride.title %> </h2>
+      <div id='map'></div>
 
-</div>
+      <% if @ride.description.length > 0 %>
+        <label>Description:</label>
+        <p><%= @ride.description %></p>
+        <br>
+      <% end %>
 
-<% if session[:user_id] == @ride.user_id %>
-<div class="row">
-  <%= button_to "Edit Ride", edit_ride_path, class: "pairBtn btn btn-default", method: "get" %> 
-  <%= button_to "Delete Ride", ride_path, class: "pairBtn btn btn-default", method: "delete" %>
-</div>
-<% end %>
+      <% if @ride.start_date %>
+        <label>Start Date:</label>
+        <p><%= @ride.start_date %></p>
+        <br>
+      <% end %>
 
-<% if current_user && check_if_joined  %>
-<div>
-  <%= button_to 'Join Ride', { :class => "pairBtn btn btn-default", controller: :ride_joinings, :action => "create", :ride_joiner_id => current_user.id, :joined_ride_id => @ride.id } , :method=>:post  %>
-</div>
-<% end %>
+      <% if @ride.end_date %>
+        <label>End Date:</label>
+        <p> <%= @ride.end_date %> </p>
+        <br>
+      <% end %>
+
+      <% if @ride.start_time %>
+        <label>Start Time:</label>
+        <p> <%= @ride.start_time %> </p>
+        <br>
+      <% end %>
+
+      <% if @ride.end_time %>
+        <label>End Time:</label>
+        <p><%= @ride.end_time %></p>
+        <br>
+      <% end %>
+
+      <% if @ride.start_location.length > 0 %>
+        <label>Start Location:</label>
+        <p> <%= @ride.start_location %> </p>
+        <br>
+      <% end %>
+
+      <% if @ride.end_location.length > 0 %>
+        <label>End Location:</label>
+        <p> <%= @ride.end_location %> </p>
+        <br>
+      <% end %>
+
+      <% if @ride.drop %>
+        <label>This is a drop ride.</label>
+        <br>
+      <% end %>
+
+      <% if @ride.public %>
+        <label>This ride is open to the public.</label>
+      <% end %>
+
+    </div>
+
+    <div class="col-sm-5">
+      <h2>Confirmed Riders</h2>
+      <% @joined_rides.each do |r| %>
+        <h3> <%= User.find(r.ride_joiner_id).name %> </h3>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class="row col-sm-offset-1">
+    <% if session[:user_id] == @ride.user_id %>
+      <%= button_to "Edit Ride", edit_ride_path, class: "pairBtn btn btn-default", method: "get" %> 
+      <%= button_to "Delete Ride", ride_path, class: "pairBtn btn btn-default", method: "delete" %>
+    <% end %>
+    <% if current_user && check_if_joined %>
+      <%= button_to 'Join Ride', { :class => "pairBtn btn btn-default", controller: :ride_joinings, :action => "create", :ride_joiner_id => current_user.id, :joined_ride_id => @ride.id } , :method=>:post %>
+    <% end %>
+  </div>
+
 </div>
