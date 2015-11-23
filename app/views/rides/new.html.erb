@@ -1,6 +1,7 @@
 <!-- rides#new -->
 
 <%= form_for @ride do |f| %>
+<!-- add errors div here for use with model validations -->
 
   <div class="col-sm-4 col-sm-offset-4" id="new-post-form">
   	<%= f.text_field :title, class: "form-control", placeholder: 'title' %>

@@ -2,28 +2,45 @@
 
 <div class="container">
 	
-  <div class="row" id="profile-details">
-
-		<div class="col-lg-7 col-md-6 col-sm-5" id="user-description">
-			<div><%= image_tag @user.avatar.url(:medium) %></div>
-			<h2 id="user-name"><%= @user.name %></h2>
-			<h5>Member Since: <%= @user.created_at.strftime("%B %Y") %></h5>
-			<%= button_to "Edit Profile", edit_user_path(current_user), class: "btn btn-default", method: "get" %>
-		</div>
-  </div>
-  <br>
-  <div class="row contaner col-sm-6 col-sm-offset-3">
-  <% @rides.each do |ride| %> 
-  <% @ridenames.each do |ridename| %> 
-  <% if ride.joined_ride_id == ridename.id %>
-        <div class="row">
-        	<div class='well well-sm'><%= link_to "#{ridename.title}", ride_path(ride.joined_ride_id), method: "get" %></div>
-    	</div>
-	<% end %>
-	<% end %>
-	<% end %>
+	<div class="col-sm-4" id="user-description">
+		<div><%= image_tag @user.avatar.url(:medium) %></div>
+		<h2 id="user-name"><%= @user.name %></h2>
+		<h4>Joined: <%= @user.created_at.strftime("%B %Y") %></h4>
+		<%= button_to "Edit Profile", edit_user_path(current_user), class: "btn btn-default", method: "get" %>
 	</div>
+
+  <div class="col-sm-4">
+    <h2>Upcoming Rides</h2>
+    <% @rides.each do |ride| %> 
+      <% @ridenames.each do |ridename| %>
+          <% if !Date.parse(ridename[:end_date].to_s).past? %>
+            <% if ride.joined_ride_id == ridename.id %>
+            	<div class='well well-sm'>
+                <%= link_to "#{ridename.title}", ride_path(ride.joined_ride_id), method: "get" %>
+              </div>
+            <% end %>
+          <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="col-sm-4">
+    <h2>Past Rides</h2>
+    <% @rides.each do |ride| %> 
+      <% @ridenames.each do |ridename| %>
+          <% if Date.parse(ridename[:end_date].to_s).past? %>
+            <% if ride.joined_ride_id == ridename.id %>
+              <div class='well well-sm'>
+                <%= link_to "#{ridename.title}", ride_path(ride.joined_ride_id), method: "get" %>
+              </div>
+            <% end %>
+          <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
 </div>
+
 <%= will_paginate @rides %>
 
 <div id='map'></div>

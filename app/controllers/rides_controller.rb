@@ -45,6 +45,7 @@ class RidesController < ApplicationController
 	end
 
 	def destroy
+
 		@ride = Ride.friendly.find(params[:id])
 		@ride.destroy
 		redirect_to user_path(current_user)
