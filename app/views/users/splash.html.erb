@@ -2,14 +2,21 @@
 <body>
 
   <div class="wrapper">
-    <div class="text-right" id="splash_login"><%= link_to "Log in", new_session_path, method: "get" %></div>
+  <div class="text-right">
+    <% if logged_in? %> 
+    <% @user = current_user %> 
+    <%= link_to "Welcome, #{@user.name}", user_path(current_user), method: "get" %>
+    <% else %>
+    <div id="splash_login"><%= link_to "Log in", new_session_path, method: "get" %></div>
+    <% end %>
+    </div>
     <div id="splashcontent"> 
       <h1>Let's Ride</h1>
         <p>
-         Create custom routes with our map feature.<br>
-         Invite your friends to join the ride.<br>
-         Search for rides in your area.  <br>
-         Find new friends to ride with.<br>
+          Host, join, and discover group <br>
+          cycling rides in your area.   <br>
+          Riding with friends  <br>
+          always better. <br>
         </p>
     </div>
 

@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.friendly.find(params[:id])
-    @rides = RideJoining.where(ride_joiner_id: current_user)
+    @rides = RideJoining.where(ride_joiner_id: current_user).reverse_order.all.paginate(page: params[:page], per_page: 5)
     @ridenames = Ride.all
   end
 
