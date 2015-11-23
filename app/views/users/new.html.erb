@@ -23,17 +23,13 @@
 		<%= f.label 'Profile Image' %>
   		<%= f.file_field :avatar %>
   		<br>
-		<%= f.label :name %>
-		<%= f.text_field :name, class: 'form-control' %>
+		<%= f.text_field :name, class: 'form-control', placeholder: 'name' %>
 		<br>
-		<%= f.label :email %>
-		<%= f.text_field :email, class: "form-control" %>
+		<%= f.text_field :email, class: "form-control", placeholder: 'email' %>
 		<br>
-		<%= f.label :password %>
-		<%= f.password_field :password, class: "form-control" %>
+		<%= f.password_field :password, class: "form-control", placeholder: 'password' %>
 		<br>
-		<%= f.label :password_confirmation %>
-		<%= f.password_field :password_confirmation, class: "form-control" %>
+		<%= f.password_field :password_confirmation, class: "form-control", placeholder: 'confirm password' %>
 		<br>
 		<div class="text-right">
 		  <%= f.submit "Sign Up", class: "btn btn-default" %>

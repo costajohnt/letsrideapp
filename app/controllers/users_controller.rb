@@ -33,6 +33,10 @@ class UsersController < ApplicationController
     @ridenames = Ride.all
   end
 
+  def splash
+    @disable_nav = true
+  end
+
   private
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation, :name, :slug, :avatar)

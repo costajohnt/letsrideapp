@@ -1,14 +1,11 @@
 <!-- sessions#new -->
 
-<div class="col-sm-4 col-sm-offset-4" id="login-form">
+<div class="col-sm-4 col-sm-offset-4" id="loginform">
 	
 	<%= form_for @user, url: "/sessions", method: "post" do |f| %>
-
-		<%= f.label :email %>
-		<%= f.text_field :email, class: "form-control" %>
+		<%= f.text_field :email, class: "form-control", placeholder: 'email' %>
 		<br>
-		<%= f.label :password %>
-		<%= f.password_field :password, class: "form-control" %>
+		<%= f.password_field :password, class: "form-control", placeholder: 'password' %>
 		<br>
 		<div class="text-right">
 			<%= f.submit "Log In", class: "btn btn-default" %>
