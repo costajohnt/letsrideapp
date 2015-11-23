@@ -32,11 +32,6 @@ class Ride < ActiveRecord::Base
 	def self.search(search)
 	  where(start_location: "#{search}") 
 	end
-	
-	# def start_location
-	# 	@start_location
-	# end
-
 	geocoded_by :start_location			
 	after_validation :geocode
 end

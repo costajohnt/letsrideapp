@@ -130,7 +130,7 @@
 		    .addTo(mapSimple);
 
 	</script>
-<%= render partial: "layouts/nav" %>
+<%= render partial: "layouts/nav" unless @disable_nav %>
 <%= yield %>
 
 

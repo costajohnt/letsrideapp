@@ -1,11 +1,4 @@
-body {
-  margin: 0;
-  min-height: 100%;
-}
 
-html {
-	min-height: 100%;
-}
 .navbar-custom {
 	background-color: #1c1d21;
 	border-radius: 0 !important;
@@ -44,4 +37,8 @@ background-size: 100% auto;
   color: #fff !important;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.19);
   -webkit-font-smoothing: antialiased;
+}
+
+#signup {
+	margin-top: 30%;
 }
