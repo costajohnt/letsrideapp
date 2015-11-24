@@ -78,3 +78,29 @@
       <br>
   </div>
 </div>
+
+  <% @joined_rides.each do |r| %>
+    <%= User.find(r.ride_joiner_id).name %>
+  <% end %>
+
+</div>
+
+<% if session[:user_id] == @ride.user_id %>
+<div class="row">
+  <%= button_to "Edit Ride", edit_ride_path, class: "pairBtn btn btn-default", method: "get" %> 
+  <%= button_to "Delete Ride", ride_path, class: "pairBtn btn btn-default", method: "delete" %>
+</div>
+<% end %>
+
+<% if current_user && check_if_joined  %>
+<div>  <%= button_to 'Join Ride', { :class => "pairBtn btn btn-default", controller: :ride_joinings, :action => "create", :ride_joiner_id => current_user.id, :joined_ride_id => @ride.id } , :method=>:post  %>
+</div>
+<% end %>
+</div>
+
+<div id='map'></div>
+<div id='directions'>
+</div>
+
+<div class='hidden' id='start_location'><%= @ride.start_location %></div>
+<div class='hidden' id='end_location'><%= @ride.end_location %></div>
