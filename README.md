@@ -60,8 +60,8 @@ We didn't make one
 
 
 ##Contributors
-John Costa: https://github.com/costajohnt
-Isom Durm: https://github.com/isomdurm
-Mike Xi: https://github.com/miekmiek
+- John Costa: https://github.com/costajohnt
+- Isom Durm: https://github.com/isomdurm
+- Mike Xi: https://github.com/miekmiek
 
 
