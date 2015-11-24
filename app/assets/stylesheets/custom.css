@@ -11,54 +11,41 @@
 }
 
 .navbar-custom a {
-	 color: white;
+	color: white;
 }
 
 #home {
-	 font-family: 'Londrina Outline', cursive;
-	 font-size: 24px;
-	 }
+	font-family: 'Londrina Outline', cursive;
+	font-size: 24px;
+}
 
 
 .wrapper {
 	height: 100vh;
 	background: url('http://i.imgur.com/MvUMjgw.jpg') no-repeat   center center fixed;
--webkit-background-size: 100% auto;
--moz-background-size: 100% auto;
--o-background-size: 100% auto;
-background-size: 100% auto;
+	-webkit-background-size: 100% auto;
+	-moz-background-size: 100% auto;
+	-o-background-size: 100% auto;
+	background-size: 100% auto;
 }
 
 .btn {
-  background-color: #075572 !important;
-  opacity: .80;
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#303030", endColorstr="#111111");
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#303030), to(#111111));
-  background-image: -moz-linear-gradient(top, #303030, #111111);
-  background-image: -ms-linear-gradient(top, #303030, #111111);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #303030), color-stop(100%, #111111));
-  background-image: -webkit-linear-gradient(top, #303030, #111111);
-  background-image: -o-linear-gradient(top, #303030, #111111);
-  background-image: linear-gradient(#303030, #111111);
-  border-color: #111111 #111111 hsl(360, 0%, 4%);
-  color: #fff !important;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.19);
-  -webkit-font-smoothing: antialiased;
+	background-color: #075572 !important;
+	opacity: .80;
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#303030", endColorstr="#111111");
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#303030), to(#111111));
+	background-image: -moz-linear-gradient(top, #303030, #111111);
+	background-image: -ms-linear-gradient(top, #303030, #111111);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #303030), color-stop(100%, #111111));
+	background-image: -webkit-linear-gradient(top, #303030, #111111);
+	background-image: -o-linear-gradient(top, #303030, #111111);
+	background-image: linear-gradient(#303030, #111111);
+	border-color: #111111 #111111 hsl(360, 0%, 4%);
+	color: #fff !important;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.19);
+	-webkit-font-smoothing: antialiased;
 }
-
-
-
-/*#triangle {
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 700px 600px 0 0;
-	border-color: #075572 transparent transparent transparent;
-	margin-top: -20px;
-	opacity: 0.8;
-
-}*/
 
 #signupgroup {
 	margin-top: 15%;
@@ -73,41 +60,48 @@ background-size: 100% auto;
 }
 
 .splashcontent {
+	clear: right;
 	margin-top: -40px;
 	text-align: left;
 	margin-left: 28px;
-	/*font-family: 'Cabin', sans-serif; */
 	font-family: 'Droid Serif', serif;
 	font-size: 18px;
 	color: white;
 	font-weight: bold;
 	line-height: 200%;
-	}
+}
 
- #new-post-form {
- 	margin-top: 5%;
- }
+#new-post-form {
+	margin-top: 5%;
+}
 
- #or {
- 	color: #075572;
- 	font-family: 'Arial';
- 	font-size: 20px;
- 	margin-bottom: -20px;
- 	margin-top: -15px;
- }
- #splashhead {
- 	margin-left: -10px;
- 	margin-top: 0px;
- 	font-size: 68px;
- 	font-family: 'Londrina Outline', cursive;
- /*	font-family: 'Just Me Again Down Here', cursive;*/
- 	/*font-family: 'Reenie Beanie', cursive;*/
- }
+#or {
+	color: #075572;
+	font-family: 'Arial';
+	font-size: 20px;
+	margin-bottom: -20px;
+	margin-top: -15px;
+}
+#splashhead {
+	margin-left: -10px;
+	margin-top: 0px;
+	font-size: 68px;
+	font-family: 'Londrina Outline', cursive;
+}
 
- #splashlog {
- 	padding-top: 20px;
- 	padding-right: 20px;
- }
+#splashlog {
+	padding-top: 20px;
+	padding-right: 20px;
+}
 
-/*'http://i.imgur.com/oDRZ3ZD.jpg?1*/*/
+#usershow {
+	padding-left: 90px;
+	padding-top: 60px;
+}
+
+#pastrides {
+	padding-left: 75px;
+}
+
+
 
