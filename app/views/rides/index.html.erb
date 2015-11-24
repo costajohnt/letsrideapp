@@ -2,8 +2,8 @@
 <h1 class="text-center">Upcoming Rides</h1>
 <br>
   <% @rides.each do |ride| %>
-    <div class="row">
-      <div class='well well-sm'><%= link_to "#{ride.title}", ride_path(ride.id), method: "get" %></div>
+    <div class="row col-sm-6 col-sm-offset-3">
+      <div class='well well-sm text-center'><%= link_to "#{ride.title}", ride_path(ride.id), method: "get" %></div>
     </div>
   <% end %>
   <% if @rides.empty? %>
