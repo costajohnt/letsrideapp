@@ -67,12 +67,19 @@
         <br>
     </div> <!-- div.col -->
 
-    <div class="col-sm-5">
+    <div class="col-sm-5" id="rideshowmap">
       <div id='map'></div>
     </div>
   </div> <!-- div.row -->
-  
-  <br>
+<br>
+<div class="row">
+   <div class="col-sm-4 col-sm-offset-4">
+     <h2>Confirmed Riders</h2>
+     <% @joined_rides.each do |r| %>
+       <div class="well well-sm"> <%= User.find(r.ride_joiner_id).name %> </div>
+     <% end %>
+   </div> <!-- div.col -->
+ </div> <!-- div.row -->
 <!--  -->
 </div> <!-- div.container -->
 
