@@ -44,6 +44,8 @@ function addDirections() {
 
 	var test = $('#start_location').text();
 
+	console.log(test);
+
     var testone = $('#end_location').text();
 
     var geojson;
@@ -93,39 +95,34 @@ function addDirections() {
 
     var end = geocoder.query(testone, showMapEnd);
 
-    function timeout() {
+	function timeout() {
 
+	    var directions = L.mapbox.directions({
+		    profile: 'mapbox.cycling'
+		}).setOrigin(geojson[0]).setDestination(geojsone[0]);
 
-   var json = [geojson, geojsone];
+		var directionsLayer = L.mapbox.directions.layer(directions)
+		    .addTo(map);
 
-   console.log(json);
+		var directionsInputControl = L.mapbox.directions.inputControl('inputs', directions)
+		    .addTo(map);
 
-    var directions = L.mapbox.directions({
-	    profile: 'mapbox.cycling'
-	}).setOrigin(geojson[0]).setDestination(geojsone[0]);
+		var directionsErrorsControl = L.mapbox.directions.errorsControl('errors', directions)
+		    .addTo(map);
 
-	var directionsLayer = L.mapbox.directions.layer(directions)
-	    .addTo(map);
+		var directionsRoutesControl = L.mapbox.directions.routesControl('routes', directions)
+		    .addTo(map);
 
-	var directionsInputControl = L.mapbox.directions.inputControl('inputs', directions)
-	    .addTo(map);
+		var directionsInstructionsControl = L.mapbox.directions.instructionsControl('instructions', directions)
+		    .addTo(map);
 
-	var directionsErrorsControl = L.mapbox.directions.errorsControl('errors', directions)
-	    .addTo(map);
+		    console.log('hellooooo', geojson);
 
-	var directionsRoutesControl = L.mapbox.directions.routesControl('routes', directions)
-	    .addTo(map);
-
-	var directionsInstructionsControl = L.mapbox.directions.instructionsControl('instructions', directions)
-	    .addTo(map);
-
-	    console.log('hellooooo', geojson);
-
-	map.setView([geojson[0].geometry.coordinates[1], geojson[0].geometry.coordinates[0]], 12);
+		map.setView([geojson[0].geometry.coordinates[1], geojson[0].geometry.coordinates[0]], 12);
 
 };
 
-setTimeout(timeout, 3000)
+setTimeout(timeout, 5000)
 
 
 
