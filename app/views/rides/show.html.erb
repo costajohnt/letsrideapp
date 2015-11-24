@@ -5,67 +5,83 @@
   <div class="row">
     <div class="col-sm-5 col-sm-offset-1">
       <h2 id="Ride"> <%= @ride.title %> </h2>
-      <div id='map'></div>
 
       <% if @ride.description.length > 0 %>
         <label>Description:</label>
-        <p><%= @ride.description %></p>
+        <div class="well well-sm"><%= @ride.description %></div>
         <br>
       <% end %>
 
       <% if @ride.start_date %>
         <label>Start Date:</label>
-        <p><%= @ride.start_date %></p>
+        <div class="well well-sm"><%= @ride.start_date %></div>
         <br>
       <% end %>
 
       <% if @ride.end_date %>
         <label>End Date:</label>
-        <p> <%= @ride.end_date %> </p>
+        <div class="well well-sm"> <%= @ride.end_date %> </div>
         <br>
       <% end %>
 
       <% if @ride.start_time %>
         <label>Start Time:</label>
-        <p> <%= @ride.start_time %> </p>
+        <div class="well well-sm"> <%= @ride.start_time %> </div>
         <br>
       <% end %>
 
       <% if @ride.end_time %>
         <label>End Time:</label>
-        <p><%= @ride.end_time %></p>
+        <div class="well well-sm"><%= @ride.end_time %></div>
         <br>
       <% end %>
 
       <% if @ride.start_location.length > 0 %>
         <label>Start Location:</label>
-        <p> <%= @ride.start_location %> </p>
+        <div class="well well-sm"> <%= @ride.start_location %> </div>
         <br>
       <% end %>
 
       <% if @ride.end_location.length > 0 %>
         <label>End Location:</label>
-        <p> <%= @ride.end_location %> </p>
+        <div class="well well-sm"> <%= @ride.end_location %> </div>
         <br>
       <% end %>
 
       <% if @ride.drop %>
-        <label>This is a drop ride.</label>
+        <div class="well well-sm"> This is a drop ride.</div>
         <br>
       <% end %>
 
       <% if @ride.public %>
-        <label>This ride is open to the public.</label>
+        <div class="well well-sm"> This ride is open to the public. </div>
       <% end %>
-    </div>
+
+      <% if session[:user_id] == @ride.user_id %>
+        <%= button_to "Edit Ride", edit_ride_path, class: "pairBtn btn btn-default", method: "get" %> 
+        <%= button_to "Delete Ride", ride_path, class: "pairBtn btn btn-default", method: "delete" %>
+      <% end %>
+      <% if current_user && check_if_joined %>
+        <%= button_to 'Join Ride', { controller: :ride_joinings, :action => "create", :ride_joiner_id => current_user.id, :joined_ride_id => @ride.id }, :class => "pairBtn btn btn-default", :method=>:post %>
+      <% end %>
+        <br>
+    </div> <!-- div.col -->
 
     <div class="col-sm-5">
+      <div id='map'></div>
+    </div>
+  </div> <!-- div.row -->
+  
+  <br>
+
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
       <h2>Confirmed Riders</h2>
       <% @joined_rides.each do |r| %>
-        <h3> <%= User.find(r.ride_joiner_id).name %> </h3>
+        <div class="well well-sm"> <%= User.find(r.ride_joiner_id).name %> </div>
       <% end %>
-    </div>
-  </div>
+    </div> <!-- div.col -->
+  </div> <!-- div.row -->
 
   <div class="row col-sm-offset-1">
     <% if session[:user_id] == @ride.user_id %>
@@ -104,3 +120,6 @@
 
 <div class='hidden' id='start_location'><%= @ride.start_location %></div>
 <div class='hidden' id='end_location'><%= @ride.end_location %></div>
+
+</div> <!-- div.container -->
+
