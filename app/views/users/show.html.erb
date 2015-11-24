@@ -1,46 +1,44 @@
 <!-- users#show -->
 
-<div class="container">
-	
+<div class="container col-sm-offset-1" id="usershow">
 	<div class="col-sm-4" id="user-description">
 		<div><%= image_tag @user.avatar.url(:medium) %></div>
 		<h2 id="user-name"><%= @user.name %></h2>
 		<h4>Joined: <%= @user.created_at.strftime("%B %Y") %></h4>
 		<%= button_to "Edit Profile", edit_user_path(current_user), class: "btn btn-default", method: "get" %>
 	</div>
-
-  <div class="col-sm-4">
+  <div class="col-lg-4 col-lg-offset-3 col-sm-4 col-sm-offset-3 text-center" id="upcoming">
     <h2>Upcoming Rides</h2>
     <% @rides.each do |ride| %> 
-      <% @ridenames.each do |ridename| %>
-          <% if !Date.parse(ridename[:end_date].to_s).past? %>
-            <% if ride.joined_ride_id == ridename.id %>
-            	<div class='well well-sm'>
-                <%= link_to "#{ridename.title}", ride_path(ride.joined_ride_id), method: "get" %>
-              </div>
-            <% end %>
-          <% end %>
-      <% end %>
+    <% @ridenames.each do |ridename| %>
+    <% if !Date.parse(ridename[:end_date].to_s).past? %>
+    <% if ride.joined_ride_id == ridename.id %>
+    <div class='well well-sm'>
+      <%= link_to "#{ridename.title}", ride_path(ride.joined_ride_id), method: "get" %>
+    </div>
+    <% end %>
+    <% end %>
+    <% end %>
     <% end %>
   </div>
-
-  <div class="col-sm-4">
+</div>
+<br>
+<div class="container text-center" id="pastrides">
+  <div class="row col-sm-4 col-sm-offset-3">
     <h2>Past Rides</h2>
     <% @rides.each do |ride| %> 
-      <% @ridenames.each do |ridename| %>
-          <% if Date.parse(ridename[:end_date].to_s).past? %>
-            <% if ride.joined_ride_id == ridename.id %>
-              <div class='well well-sm'>
-                <%= link_to "#{ridename.title}", ride_path(ride.joined_ride_id), method: "get" %>
-              </div>
-            <% end %>
-          <% end %>
-      <% end %>
+    <% @ridenames.each do |ridename| %>
+    <% if Date.parse(ridename[:end_date].to_s).past? %>
+    <% if ride.joined_ride_id == ridename.id %>
+    <div class='well well-sm'>
+      <%= link_to "#{ridename.title}", ride_path(ride.joined_ride_id), method: "get" %>
+    </div>
+    <% end %>
+    <% end %>
+    <% end %>
     <% end %>
   </div>
-
 </div>
-
 <%= will_paginate @rides %>
 
 

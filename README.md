@@ -4,9 +4,10 @@ github: https://github.com/isomdurm/lets_ride
 
 ##Description
 
- Let's Ride connects cyclists to other biking enthusiasts in their area.  Find interesting publically available rides in your join and meet new friends.  Manage private rides with invited friends only.  Manage your routes, past and upcoming rides.
+Let's Ride connects cyclists to other biking enthusiasts in their area.  Find interesting publically available rides in your join and meet new friends.  Manage private rides with invited friends only.  Manage your routes, past and upcoming rides.
 
 ##Wireframes
+We lost our hard copies of the wireframes after they were put into production
 
 ##User Stories
 -Johnny is new to the area and wants to meet fellow cyclists to ride with.  He goes to Let's Ride to search for upcoming rides in his area.  He searches based on location and skill level/average speed.
@@ -15,6 +16,7 @@ github: https://github.com/isomdurm/lets_ride
 -Jimmy wants to plan an overnight cycling/camping trip with his friends, but he also wants to open it up to anyone so that he can make some new friends with a shared interest.  Jimmy creates the event on Let's Ride and sets it to public. He emails the link to his friends so they can join, too.
 
 ##Entity Relationship Diagram
+We didn't make one
 
 ##API's Used
 -internal
@@ -22,6 +24,9 @@ github: https://github.com/isomdurm/lets_ride
 -mapbox
 
 ##Libraries Used
+-bootstrap
+-active record
+-ruby gems, so many ruby gems
 
 ##Wishlist/Future Development
 -more and better styling on all pages
@@ -30,6 +35,8 @@ github: https://github.com/isomdurm/lets_ride
 -allow users to invite members via email or Let's Ride username and have them recieve the email 
 -setup a comments section/group chat on rides show page so users can have a dialogue about the ride and planning
 -allow users to send direct messages to one another
+-allow users to leave a ride they have joined
+-show thumbnail of map next to ride information in the ride show page
 
 
 ##Contributors
