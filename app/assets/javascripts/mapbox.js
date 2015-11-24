@@ -95,6 +95,11 @@ function addDirections() {
 
     function timeout() {
 
+
+   var json = [geojson, geojsone];
+
+   console.log(json);
+
     var directions = L.mapbox.directions({
 	    profile: 'mapbox.cycling'
 	}).setOrigin(geojson[0]).setDestination(geojsone[0]);
@@ -115,6 +120,8 @@ function addDirections() {
 	    .addTo(map);
 
 	    console.log('hellooooo', geojson);
+
+	map.setView([geojson[0].geometry.coordinates[1], geojson[0].geometry.coordinates[0]], 12);
 
 };
 
