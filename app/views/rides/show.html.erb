@@ -73,8 +73,8 @@
       <%= button_to "Delete Ride", ride_path, class: "pairBtn btn btn-default", method: "delete" %>
     <% end %>
     <% if current_user && check_if_joined %>
-      <%= button_to 'Join Ride', { :class => "pairBtn btn btn-default", controller: :ride_joinings, :action => "create", :ride_joiner_id => current_user.id, :joined_ride_id => @ride.id } , :method=>:post %>
+      <%= button_to 'Join Ride', { controller: :ride_joinings, :action => "create", :ride_joiner_id => current_user.id, :joined_ride_id => @ride.id }, :class => "pairBtn btn btn-default", :method=>:post %>
     <% end %>
+      <br>
   </div>
-
 </div>

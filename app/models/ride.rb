@@ -34,4 +34,6 @@ class Ride < ActiveRecord::Base
 	end
 	geocoded_by :start_location			
 	after_validation :geocode
+
+	validates :start_date, :start_location, :title, presence: true
 end
